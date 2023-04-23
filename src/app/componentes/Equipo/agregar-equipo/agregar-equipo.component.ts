@@ -1,16 +1,14 @@
 import { Component, inject} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { JugadorService } from './../../servicios/jugador.service';
 import { Router } from '@angular/router';
 import { Firestore, collection, collectionData, doc , addDoc} from '@angular/fire/firestore';
-
-
+import { Equipo } from 'src/app/modelos/equipo/equipo.model';
 @Component({
-  selector: 'app-agregar-jugador',
-  templateUrl: './agregar-jugador.component.html',
-  styleUrls: ['./agregar-jugador.component.scss']
+  selector: 'app-agregar-equipo',
+  templateUrl: './agregar-equipo.component.html',
+  styleUrls: ['./agregar-equipo.component.scss']
 })
-export class AgregarJugadorComponent{
+export class AgregarEquipoComponent {
   formulario: FormGroup;
   public imagenBase64 = '';
   public cargandoImagen = false;
@@ -19,24 +17,20 @@ export class AgregarJugadorComponent{
   submitted = false;
   isLoading = false;
   constructor
-  (private jugadorService:JugadorService,
-   public router: Router)    {
+  (public router: Router)
+  {
     this.formulario = new FormGroup({
       nombre: new FormControl(),
       apellido: new FormControl(),
-      fotografia: new FormControl(),
-      edad: new FormControl(),
-      posicion: new FormControl(),
-      goles: new FormControl(),
-      asistencias: new FormControl(),
-      t_amarillas: new FormControl(),
-      t_rojas: new FormControl(),
-      partidos: new FormControl(),
-      equipo_entrada: new FormControl(),
-      tipo: new FormControl(),
+      rut: new FormControl(),
+      correo: new FormControl(),
+      contrasena: new FormControl(),
+      permisos: new FormControl(),
       sueldo: new FormControl(),
-      estado: new FormControl(),
-
+      valor_hora_extra: new FormControl(),
+      equipo_entrada: new FormControl(),
+      fotografia: new FormControl(),
+      extras_realizadas: new FormControl(),
     })
   }
 
@@ -46,7 +40,7 @@ export class AgregarJugadorComponent{
   }
 
   addData() {
-    const collectionInstance = collection(this.firestore, 'Jugadores');
+    const collectionInstance = collection(this.firestore, 'Equipos');
     addDoc(collectionInstance, this.formulario.value)
       .then((res) => {
         this.formulario.reset();
@@ -59,5 +53,6 @@ export class AgregarJugadorComponent{
     this.submitted = false;
     this.isLoading = false;
   }
+
 
 }

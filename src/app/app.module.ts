@@ -4,16 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './componentes/index/index.component';
-import { JugadoresComponent } from './componentes/jugadores/jugadores.component';
+import { JugadoresComponent } from './componentes/Jugador/jugadores/jugadores.component';
 import { CampeonatosComponent } from './componentes/campeonatos/campeonatos.component';
 import { TraspasosComponent } from './componentes/traspasos/traspasos.component';
-import { AgregarJugadorComponent } from './componentes/agregar-jugador/agregar-jugador.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { JugadorService } from './servicios/jugador.service';
 import { environment } from 'src/environments/environment';
+import { ModificarJugadorComponent } from './componentes/Jugador/modificar-jugador/modificar-jugador.component';
+import { AgregarJugadorComponent } from './componentes/Jugador/agregar-jugador/agregar-jugador.component';
+import { EquipoComponent } from './componentes/Equipo/equipo/equipo.component';
+import { AgregarEquipoComponent } from './componentes/Equipo/agregar-equipo/agregar-equipo.component';
 
 
 
@@ -26,7 +28,10 @@ import { environment } from 'src/environments/environment';
     TraspasosComponent,
     AgregarJugadorComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ModificarJugadorComponent,
+    EquipoComponent,
+    AgregarEquipoComponent
 
 
 
@@ -46,7 +51,7 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [JugadorService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

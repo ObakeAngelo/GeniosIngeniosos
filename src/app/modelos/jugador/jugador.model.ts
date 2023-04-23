@@ -16,5 +16,3 @@ export interface Jugador {
   sueldo: number;
   estado: string;
 }
-
-
