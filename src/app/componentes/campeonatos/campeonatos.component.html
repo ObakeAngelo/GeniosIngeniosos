@@ -44,4 +44,46 @@
       </div>
     </div>
   </nav>
+
+
+
+
+
+  <div class="card text-center offset-5 col-10" style="width: 18rem;" *ngFor="let campeonato of campeonatos$ | async">
+    <div class="card-header">
+      <h5 class="card-title">Campeonato Regional</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+
+      <li class="list-group-item">
+        <div class="row justify-content-evenly">
+          <div class="col-6">
+            <img src="https://logodownload.org/wp-content/uploads/2017/02/colo-colo-logo-escudo-shield.png" width="50px" height="50px">
+          </div>
+          <div class="col-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Escudo_Club_Deportes_Cobreloa.png" width="50px" height="50px">
+          </div>
+        </div>
+      </li>
+
+        <li class="list-group-item">
+          <div>
+            <div class="row align-items-start">
+              <div class="col">
+                {{campeonato.equipo}}
+              </div>
+              <div class="col">
+                VS
+              </div>
+              <div class="col">
+                {{campeonato.equipo_rival}}
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">{{campeonato.gol}}  - {{campeonato.gol_rival}} </li>
+        <div class="card-footer text-muted">
+          {{campeonato.fecha.toDate() | date:'yyyy/MM/dd'}}
+        </div>
+    </ul>
   </div>

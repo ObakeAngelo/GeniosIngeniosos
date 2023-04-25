@@ -19,6 +19,7 @@ export class JugadoresComponent {
     const collectionInstance = collection(this.firestore, 'Jugadores');
     collectionData(collectionInstance, { idField: 'id' }).subscribe(() => {});
     this.jugadores$ = collectionData(collectionInstance, { idField: 'id' });
+    console.log('jugadores',this.jugadores$)
 
 
   }
@@ -27,7 +28,7 @@ export class JugadoresComponent {
     if (type == 'edit') {
       console.log('Edit')
     } else if (type == 'delete') {
-      alert('Are you sure to Delete Data!!!......');
+      alert('PAPITO TE VOY A BORRAR!!!......');
       const docInstance = doc(this.firestore, 'Jugadores', index);
       deleteDoc(docInstance)
         .then(() => {
@@ -40,6 +41,7 @@ export class JugadoresComponent {
       console.log('Call Wrong Function......');
     }
     this.updateId = index;
+    console.log(index)
   }
 
 }

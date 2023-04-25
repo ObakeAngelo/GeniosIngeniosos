@@ -90,7 +90,7 @@
       <label for="floatingInput11" id="equipo.entrada1">Equipo de Entrada</label>
   </div><br>
   <div class="form-floating">
-      <input type="password" class="form-control"  formControlName="tipo" id="floatingPassword" placeholder="Tipo" id="tipo">
+      <input type="password" class="form-control"  formControlName="tipo" id="Tipo" placeholder="Tipo" id="tipo">
       <label for="floatingInput12" id="tipo1">Tipo</label>
   </div><br>
   <div class="form-floating">
@@ -101,6 +101,6 @@
       <input type="text" class="form-control"  formControlName="estado" placeholder="Estado" id="estado">
       <label for="floatingInput14" id="estado1">Estado</label>
   </div><br>
-  <button type="submit" class="btn btn-primary" (click)="editData()">Editar</button>
+  <button type="submit" class="btn btn-primary" (click)="editData(updateId)">Editar</button>
   </form>
 </div>
