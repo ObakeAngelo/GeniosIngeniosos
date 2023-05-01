@@ -1,15 +1,14 @@
-import { Component, inject} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Firestore, collection, collectionData, doc , addDoc} from '@angular/fire/firestore';
-
+import {Component, inject} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Firestore, collection, collectionData, doc, addDoc} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-agregar-jugador',
   templateUrl: './agregar-jugador.component.html',
-  styleUrls: ['./agregar-jugador.component.scss']
+  styleUrls: ['./agregar-jugador.component.scss'],
 })
-export class AgregarJugadorComponent{
+export class AgregarJugadorComponent {
   formulario: FormGroup;
   public imagenBase64 = '';
   public cargandoImagen = false;
@@ -17,8 +16,7 @@ export class AgregarJugadorComponent{
 
   submitted = false;
   isLoading = false;
-  constructor
-  (public router: Router){
+  constructor(public router: Router) {
     this.formulario = new FormGroup({
       nombre: new FormControl(),
       apellido: new FormControl(),
@@ -34,14 +32,10 @@ export class AgregarJugadorComponent{
       tipo: new FormControl(),
       sueldo: new FormControl(),
       estado: new FormControl(),
-
-    })
+    });
   }
 
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   addData() {
     const collectionInstance = collection(this.firestore, 'Jugadores');
@@ -57,5 +51,4 @@ export class AgregarJugadorComponent{
     this.submitted = false;
     this.isLoading = false;
   }
-
 }

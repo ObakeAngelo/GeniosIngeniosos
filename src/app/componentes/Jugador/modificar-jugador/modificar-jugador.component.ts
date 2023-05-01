@@ -10,12 +10,11 @@ import {Firestore, collection, collectionData, doc, updateDoc, getDoc} from '@an
   styleUrls: ['./modificar-jugador.component.scss'],
 })
 export class ModificarJugadorComponent {
-  public id!: string;
   formulario: FormGroup;
   private firestore: Firestore = inject(Firestore);
   private jugador: any;
 
-  updateId!: any;
+  public updateId: string = '';
 
   constructor(public router: Router, private activedRoute: ActivatedRoute) {
     this.formulario = new FormGroup({
@@ -37,24 +36,32 @@ export class ModificarJugadorComponent {
   }
 
   ngOnInit(): void {
-    const heroId = this.activedRoute.snapshot.paramMap.get('id');
-    console.log('id', heroId);
-    //const jugadoresCollection = collection(this.firestore, 'Jugadores');
-    this.jugador = doc(this.firestore, 'Jugadores/' + heroId);
-    console.log('jugador', this.jugador);
+    this.updateId = this.activedRoute.snapshot.paramMap.get('id') || '';
+    if (this.updateId) {
+      const jugadorDocRef = doc(this.firestore, 'Jugadores/' + this.updateId);
+      getDoc(jugadorDocRef).then((doc) => {
+        if (doc.exists()) {
+          console.log('Document data:', doc.data());
+          this.formulario.setValue(doc.data());
+        } else {
+          console.warn('No such document!');
+        }
+      });
+    }
   }
 
   resetForm() {
     this.formulario.reset();
   }
 
-  editData(index: any) {
+  editData() {
     console.log(this.formulario.value);
     console.log(this.updateId);
-    console.log(this.formulario.value);
-    const docInstance = doc(this.firestore, 'Jugadores', index);
-    updateDoc(docInstance, this.formulario.value);
-    this.updateId = index;
-    this.resetForm();
+    const jugadorDocRef = doc(this.firestore, 'Jugadores/' + this.updateId);
+    updateDoc(jugadorDocRef, this.formulario.value).then(() => {
+      console.log('Document successfully updated!');
+      this.resetForm();
+      this.router.navigate(['/jugadores']);
+    });
   }
 }

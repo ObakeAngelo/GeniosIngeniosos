@@ -17,8 +17,8 @@ import {AgregarJugadorComponent} from './componentes/Jugador/agregar-jugador/agr
 import {EquipoComponent} from './componentes/Equipo/equipo/equipo.component';
 import {AgregarEquipoComponent} from './componentes/Equipo/agregar-equipo/agregar-equipo.component';
 import {UsuariosService} from './servicios/usuarios.service';
-
 import {provideAuth, getAuth} from '@angular/fire/auth';
+import {FIREBASE_OPTIONS} from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,10 @@ import {provideAuth, getAuth} from '@angular/fire/auth';
     provideAuth(() => getAuth()),
   ],
   exports: [FormsModule, ReactiveFormsModule],
-  providers: [UsuariosService],
+  providers: [
+    {provide: UsuariosService, useClass: UsuariosService},
+    {provide: FIREBASE_OPTIONS, useValue: environment.firebase},
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
