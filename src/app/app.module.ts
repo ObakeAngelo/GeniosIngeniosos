@@ -19,6 +19,7 @@ import {AgregarEquipoComponent} from './componentes/Equipo/agregar-equipo/agrega
 import {UsuariosService} from './servicios/usuarios.service';
 import {provideAuth, getAuth} from '@angular/fire/auth';
 import {FIREBASE_OPTIONS} from '@angular/fire/compat';
+import {ModificarEquipoComponent} from './componentes/Equipo/modificar-equipo/modificar-equipo.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {FIREBASE_OPTIONS} from '@angular/fire/compat';
     ModificarJugadorComponent,
     EquipoComponent,
     AgregarEquipoComponent,
+    ModificarJugadorComponent,
   ],
   imports: [
     BrowserModule,

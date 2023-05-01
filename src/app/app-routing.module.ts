@@ -10,6 +10,7 @@ import {AgregarJugadorComponent} from './componentes/Jugador/agregar-jugador/agr
 import {ModificarJugadorComponent} from './componentes/Jugador/modificar-jugador/modificar-jugador.component';
 import {EquipoComponent} from './componentes/Equipo/equipo/equipo.component';
 import {AgregarEquipoComponent} from './componentes/Equipo/agregar-equipo/agregar-equipo.component';
+import {ModificarEquipoComponent} from './componentes/Equipo/modificar-equipo/modificar-equipo.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
@@ -27,6 +28,8 @@ const routes: Routes = [
   {path: 'traspasos', component: TraspasosComponent},
   {path: 'agregar', component: AgregarJugadorComponent},
   {path: 'equipo', component: EquipoComponent},
+  {path: 'equipo/editar/:id', component: ModificarEquipoComponent},
+
   {path: 'agregarequipo', component: AgregarEquipoComponent},
 ];
 
