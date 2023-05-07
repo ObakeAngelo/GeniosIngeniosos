@@ -20,6 +20,7 @@ import {UsuariosService} from './servicios/usuarios.service';
 import {provideAuth, getAuth} from '@angular/fire/auth';
 import {FIREBASE_OPTIONS} from '@angular/fire/compat';
 import {ModificarEquipoComponent} from './componentes/Equipo/modificar-equipo/modificar-equipo.component';
+import { FinanciamientoComponent } from './componentes/financiamiento/financiamiento.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +35,14 @@ import {ModificarEquipoComponent} from './componentes/Equipo/modificar-equipo/mo
     ModificarJugadorComponent,
     EquipoComponent,
     AgregarEquipoComponent,
-    ModificarJugadorComponent,
+    ModificarEquipoComponent,
+    FinanciamientoComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-
     ReactiveFormsModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

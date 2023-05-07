@@ -21,6 +21,8 @@
     "@angular/router": "^15.2.0",
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
+    "googleapis": "^39.2.0",
     "install": "^0.13.0",
     "jquery": "^3.6.4",
     "moment": "^2.29.4",

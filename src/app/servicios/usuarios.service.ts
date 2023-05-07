@@ -19,4 +19,7 @@ export class UsuariosService {
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
+  
+
+
 }

@@ -11,6 +11,7 @@ import {ModificarJugadorComponent} from './componentes/Jugador/modificar-jugador
 import {EquipoComponent} from './componentes/Equipo/equipo/equipo.component';
 import {AgregarEquipoComponent} from './componentes/Equipo/agregar-equipo/agregar-equipo.component';
 import {ModificarEquipoComponent} from './componentes/Equipo/modificar-equipo/modificar-equipo.component';
+import { FinanciamientoComponent } from './componentes/financiamiento/financiamiento.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'equipo/editar/:id', component: ModificarEquipoComponent},
 
   {path: 'agregarequipo', component: AgregarEquipoComponent},
+  {path: 'financiamiento', component: FinanciamientoComponent}
 ];
 
 @NgModule({
